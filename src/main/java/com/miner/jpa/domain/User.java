@@ -1,8 +1,8 @@
 package com.miner.jpa.domain;
 
+import jakarta.persistence.*;
 import lombok.*;
 
-import java.nio.file.FileStore;
 import java.time.LocalDateTime;
 
 //@Getter
@@ -10,11 +10,15 @@ import java.time.LocalDateTime;
 @NoArgsConstructor // 생성자. @Data 와 대부분 같이 쓰임.
 @RequiredArgsConstructor //생성자 @NonNull 변수만 필수. @Data 에 포함되어 있는데 주석하면 에러남....(?) AllArgsConstructor 있어서?
 @AllArgsConstructor //생성자
-//@EqualsAndHashCode // 많이 사용 많이 안함.
+//@EqualsAndHashCode // 지금은 넘어가자..
 @Data // @Getter @Setter @RequiredArgsConstructor(생성자) @ToString @EqualsAndHashCode
 @Builder // 생성자와 같이 객체 생성, 필드 값 주입하지만 빌더의 형식으로 수행
+@Entity // pk key 필수
+@Table(name = "user") // 보통 table 은 대문사 사용. ex) USER
 public class User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     // 테스트 진행 단축기 command + shift + t
     //@Getter // 변수별 설정 가능
@@ -24,8 +28,10 @@ public class User {
     @NonNull
     private String email;
 
+    @Column(name = "create_at")
     private LocalDateTime createAt;
 
+    @Column(name = "update_at")
     private LocalDateTime updateAt;
 
 

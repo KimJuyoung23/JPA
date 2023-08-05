@@ -28,7 +28,7 @@ class UserTest {
         User user2 = new User("tomas","tomas@test.com");
 
         // @AllArgsConstructor
-        User user3 = new User("tester", "test@test.com", LocalDateTime.now(), LocalDateTime.now());
+//        User user3 = new User("tester", "test@test.com", LocalDateTime.now(), LocalDateTime.now());
 
         // Builder 사용 예시
         User user4 = User.builder()
