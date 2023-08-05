@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.miner.jpa.domain.UserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-08-05T06:57:02" hostname="KJY-MAC.local" time="0.005">
+  <properties/>
+  <testcase name="test()" classname="com.miner.jpa.domain.UserTest" time="0.005"/>
+  <system-out><![CDATA[>>> com.miner.jpa.domain.User@35841320
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
