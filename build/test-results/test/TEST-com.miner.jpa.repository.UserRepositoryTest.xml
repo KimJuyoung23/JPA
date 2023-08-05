@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.miner.jpa.repository.UserRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-08-05T14:02:20" hostname="KJY-MAC.local" time="0.374">
+  <properties/>
+  <testcase name="crudUpdate()" classname="com.miner.jpa.repository.UserRepositoryTest" time="0.374"/>
+  <system-out><![CDATA[23:02:17.843 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.miner.jpa.repository.UserRepositoryTest]: UserRepositoryTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:02:17.892 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.miner.jpa.JpaApplication for test class com.miner.jpa.repository.UserRepositoryTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.2)
+
+2023-08-05T23:02:18.098+09:00  INFO 25974 --- [    Test worker] c.m.jpa.repository.UserRepositoryTest    : Starting UserRepositoryTest using Java 17.0.6 with PID 25974 (started by kimjuyoung in /Users/kimjuyoung/java/jpa)
+2023-08-05T23:02:18.101+09:00  INFO 25974 --- [    Test worker] c.m.jpa.repository.UserRepositoryTest    : No active profile set, falling back to 1 default profile: "default"
+2023-08-05T23:02:18.598+09:00  INFO 25974 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05T23:02:18.662+09:00  INFO 25974 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interfaces.
+2023-08-05T23:02:18.903+09:00  INFO 25974 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-05T23:02:19.087+09:00  INFO 25974 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c588adc
+2023-08-05T23:02:19.088+09:00  INFO 25974 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-05T23:02:19.123+09:00  INFO 25974 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05T23:02:19.148+09:00  INFO 25974 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.6.Final
+2023-08-05T23:02:19.149+09:00  INFO 25974 --- [    Test worker] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-08-05T23:02:19.202+09:00  INFO 25974 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-05T23:02:19.258+09:00  INFO 25974 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-08-05T23:02:19.366+09:00  INFO 25974 --- [    Test worker] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-08-05T23:02:19.602+09:00  INFO 25974 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05T23:02:19.609+09:00 DEBUG 25974 --- [    Test worker] org.hibernate.SQL                        : 
+    drop table if exists user
+Hibernate: 
+    drop table if exists user
+2023-08-05T23:02:19.653+09:00 DEBUG 25974 --- [    Test worker] org.hibernate.SQL                        : 
+    create table user (
+        create_at datetime(6),
+        id bigint not null auto_increment,
+        update_at datetime(6),
+        email varchar(255),
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+Hibernate: 
+    create table user (
+        create_at datetime(6),
+        id bigint not null auto_increment,
+        update_at datetime(6),
+        email varchar(255),
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2023-08-05T23:02:19.715+09:00  INFO 25974 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05T23:02:19.997+09:00  INFO 25974 --- [    Test worker] c.m.jpa.repository.UserRepositoryTest    : Started UserRepositoryTest in 2.048 seconds (process running for 2.64)
+2023-08-05T23:02:20.287+09:00 DEBUG 25974 --- [    Test worker] org.hibernate.SQL                        : 
+    insert 
+    into
+        user
+        (create_at,email,name,update_at) 
+    values
+        (?,?,?,?)
+Hibernate: 
+    insert 
+    into
+        user
+        (create_at,email,name,update_at) 
+    values
+        (?,?,?,?)
+2023-08-05T23:02:20.344+09:00 DEBUG 25974 --- [    Test worker] org.hibernate.SQL                        : 
+    update
+        user 
+    set
+        create_at=?,
+        email=?,
+        name=?,
+        update_at=? 
+    where
+        id=?
+Hibernate: 
+    update
+        user 
+    set
+        create_at=?,
+        email=?,
+        name=?,
+        update_at=? 
+    where
+        id=?
+2023-08-05T23:02:20.357+09:00 DEBUG 25974 --- [    Test worker] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.create_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.update_at 
+    from
+        user u1_0
+Hibernate: 
+    select
+        u1_0.id,
+        u1_0.create_at,
+        u1_0.email,
+        u1_0.name,
+        u1_0.update_at 
+    from
+        user u1_0
+User(id=1, name=david, email=martin@test.com, createAt=null, updateAt=null)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

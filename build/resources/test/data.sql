@@ -1,0 +1,10 @@
+call next value for hibernate_sequence;
+insert into user ('id','name','email', 'create_at','update_at') values (1, 'martin','martin@test.com',now(),now());
+call next value for hibernate_sequence;
+insert into user ('id','name','email', 'create_at','update_at') values (2, 'sophia','sophia@test.com',now(),now());
+call next value for hibernate_sequence;
+insert into user ('id','name','email', 'create_at','update_at') values (3, 'james','james@test.com',now(),now());
+call next value for hibernate_sequence;
+insert into user ('id','name','email', 'create_at','update_at') values (4, 'dennis','dennis@test.com',now(),now());
+call next value for hibernate_sequence;
+insert into user ('id','name','email', 'create_at','update_at') values (5, 'martin','martin@naver.com',now(),now());
