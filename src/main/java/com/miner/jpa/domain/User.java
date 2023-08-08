@@ -2,8 +2,12 @@ package com.miner.jpa.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 //@Getter
 //@Setter
@@ -15,6 +19,7 @@ import java.time.LocalDateTime;
 @Builder // 생성자와 같이 객체 생성, 필드 값 주입하지만 빌더의 형식으로 수행
 @Entity // pk key 필수
 @Table(name = "user") // 보통 table 은 대문사 사용. ex) USER
+@EntityListeners(AuditingEntityListener.class) // LocalDateTime 위해 적용
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,11 +33,16 @@ public class User {
     @NonNull
     private String email;
 
-    @Column(name = "create_at")
+    @CreatedDate
+    @Column(name = "create_at",updatable = false)
     private LocalDateTime createAt;
 
+    @LastModifiedDate
     @Column(name = "update_at")
     private LocalDateTime updateAt;
+
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Address> address;
 
 
     // toString 오버라이드 해도 되지만. 어노테이션 @ToString 혹은 @Data 사용

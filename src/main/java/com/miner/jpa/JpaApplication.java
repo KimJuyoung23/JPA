@@ -2,8 +2,10 @@ package com.miner.jpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
+@EnableJpaAuditing // LocalDateTime 위해 적용
 public class JpaApplication {
 
 	public static void main(String[] args) {
