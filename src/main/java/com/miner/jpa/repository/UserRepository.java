@@ -5,9 +5,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
@@ -85,4 +87,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // 페이징
     Page<User> findByName(String name, Pageable pageable);
     // Page -> 응답값, Pageable -> 요청값
+
+    @Query(value = "select * from user limit 1;", nativeQuery = true) // nativeQuery 설정으로 value 쿼리가 그대로 실행됨
+    Map<String, Object> findRowRecord(); // ENUM(gender) 의 row 데이터 확인 용도.
 }

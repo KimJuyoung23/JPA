@@ -1,5 +1,6 @@
 package com.miner.jpa.repository;
 
+import com.miner.jpa.domain.Gender;
 import com.miner.jpa.domain.User;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
@@ -22,6 +23,43 @@ class UserRepositoryTest {
     @Autowired
     private UserRepository userRepository;
 
+
+
+    @Test
+    void enumTest(){
+        User user = User.builder()
+                .name("martin")
+                .email("martin@test.com")
+                .build();
+
+        userRepository.save(user);
+        System.out.println(userRepository.findById(1L).orElseThrow(RuntimeException::new));
+
+
+        user.setGender(Gender.MALE);
+        userRepository.save(user);
+        System.out.println(userRepository.findById(1L).orElseThrow(RuntimeException::new));
+
+        // 이런식으로 사용하면 운영에 장애 발생 가능.
+        System.out.println(userRepository.findRowRecord().get("gender"));
+        // 0 출력됨. Gender.enum 의 MALE, FEMALE 순서 바꾸면 1 출력. DB에 MALE로 저장되는게 아니라 0 으로 저장됨.
+        // gender 에 새로운 데이터가 추가되거나 MALE 의 순서가 변견 되면 DB의 데이터와 차이 발생하여 오류 발생
+        // 예방. Entity의 Enum 컬럼에
+    }
+    @Test
+    void insertAndUpdateTest(){
+        User user = new User();
+        user.setName("martins");
+        user.setEmail("martin@test.com");
+
+        userRepository.save(user);
+
+        User user1 = userRepository.findById(1L).orElseThrow(RuntimeException::new);
+        user1.setName("marrrtin");
+
+        userRepository.save(user1);
+
+    }
 
     @Test
     void selectPage(){
