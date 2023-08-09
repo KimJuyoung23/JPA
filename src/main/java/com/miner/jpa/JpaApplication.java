@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
-@EnableJpaAuditing // LocalDateTime 위해 적용
+@EnableJpaAuditing // LocalDateTime 위해 적용. 기본 Entity Listener
 public class JpaApplication {
 
 	public static void main(String[] args) {
